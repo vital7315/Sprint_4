@@ -1,4 +1,4 @@
-package Sprint_4.pom;
+package sprint4.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ public class ConfirmPage {
     //Окно подтверждения заказа
 
     //Кнопка "Да"
-    private By yesButton = By.xpath("/html/body/div/div/div[2]/div[5]/div[2]/button[2]");
+    public By yesButton = By.xpath("//button[text()='Да']");
 
     private final WebDriver webDriver;
 

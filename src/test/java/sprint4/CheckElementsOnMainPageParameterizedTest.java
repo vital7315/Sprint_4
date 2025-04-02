@@ -1,28 +1,23 @@
-package Sprint_4;
+package sprint4;
 
-import Sprint_4.pom.MainPage;
-import org.junit.After;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import sprint4.pom.MainPage;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import static org.junit.Assert.assertTrue;
 
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class CheckElementsOnMainPageParameterizedTest {
+public class CheckElementsOnMainPageParameterizedTest extends BaseTest {
 
 private final By listButton;
 private final By textAnswer;
-WebDriver webDriver;
+
 MainPage mainPage;
 
 public CheckElementsOnMainPageParameterizedTest(By listButton, By textAnswer) {
@@ -43,24 +38,15 @@ public CheckElementsOnMainPageParameterizedTest(By listButton, By textAnswer) {
         });
     }
     @Before
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        webDriver = new ChromeDriver(options);
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    public void additionalSetUp() {
         mainPage = new MainPage(webDriver);
         mainPage.open();
         mainPage.scrollToTextImportantQuestionsFor();
     }
     @Test
-    public void checkListButton() throws InterruptedException {
+    public void checkListButton() {
         webDriver.findElement(listButton).click();
-        Thread.sleep(5000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(textAnswer));
         assertTrue(webDriver.findElement(textAnswer).isDisplayed());
-    }
-    @After
-    public void tearDown() {
-        webDriver.quit();
     }
 }

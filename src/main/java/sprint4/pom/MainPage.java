@@ -1,4 +1,4 @@
-package Sprint_4.pom;
+package sprint4.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,9 +44,9 @@ public class MainPage {
     // Текст ответа на восьмой вопрос: "Да, обязательно. Всем самокатов! И Москве, и Московской области."
     public static final By EIGHTH_ANSWER_LIST_BUTTON = By.cssSelector("#accordion__panel-7 > p");
     // Верхняя кнопка "Заказать"
-    private final By upOrderButton = By.xpath("/html/body/div/div/div/div[1]/div[2]/button[1]");
+    private final By upOrderButton = By.xpath("//button[@class='Button_Button__ra12g']");
     //Нижняя кнопка "Заказать"
-    private final By downOrderButton = By.xpath("/html/body/div/div/div/div[4]/div[2]/div[5]/button");
+    private final By downOrderButton = By.xpath("//button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']");
 
     private final WebDriver webDriver;
 

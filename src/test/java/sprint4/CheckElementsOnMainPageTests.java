@@ -1,6 +1,6 @@
-package Sprint_4;
+package sprint4;
 
-import Sprint_4.pom.MainPage;
+import sprint4.pom.MainPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
